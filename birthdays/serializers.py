@@ -8,4 +8,4 @@ class BirthdaySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Birthday
-        fields = ('name', 'birth_date')
+        fields = ('id', 'name', 'birth_date')
