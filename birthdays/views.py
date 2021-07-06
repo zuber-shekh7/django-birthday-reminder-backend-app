@@ -3,11 +3,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Birthday
-from .serializers import BirthdaySerializer
+from .serializers import BirthdaySerializer, CreateBirthdaySerializer
 
 @api_view(['POST'])
 def create_birthday(request):
-    serializer = BirthdaySerializer(data=request.data)
+    serializer = CreateBirthdaySerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
