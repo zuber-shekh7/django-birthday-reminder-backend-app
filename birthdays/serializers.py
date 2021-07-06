@@ -4,6 +4,10 @@ from .models import Birthday
 
 
 class CreateBirthdaySerializer(serializers.ModelSerializer):
+    name = serializers.CharField(required=True)
+    birth_date = serializers.DateField(required=True)
+    image = serializers.ImageField(required=True)
+    
     class Meta:
         model = Birthday
         fields = ('name', 'birth_date', 'image')
