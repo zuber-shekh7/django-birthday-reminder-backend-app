@@ -17,5 +17,5 @@ def create_birthday(request):
 @api_view(['GET'])
 def list_birthdays(request):
     birthdays = Birthday.objects.all()
-    serializer = BirthdaySerializer(birthdays, many=True)
+    serializer = BirthdaySerializer(birthdays, context={"request": request}, many=True)
     return Response(serializer.data)
