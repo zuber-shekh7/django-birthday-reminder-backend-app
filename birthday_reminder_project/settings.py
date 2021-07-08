@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     # 3rd party
     'corsheaders',
     'rest_framework',
-    
+    'rest_framework_simplejwt',
+
     # local
     'birthdays.apps.BirthdaysConfig',
 ]
@@ -109,6 +110,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Authentication
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -139,5 +149,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-  config('FRONTEND_APP_HOST'),
+    config('FRONTEND_APP_HOST'),
 )
