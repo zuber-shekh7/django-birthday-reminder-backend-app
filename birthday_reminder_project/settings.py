@@ -46,8 +46,12 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
 
     # local
+    'accounts.apps.AccountsConfig',
     'birthdays.apps.BirthdaysConfig',
 ]
+
+# Custom User Model
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
